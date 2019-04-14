@@ -4,17 +4,18 @@
 
 1555181881 ction.h"
 
-1555231557 source:e:\codeblock\pinball_official\main.cpp
+1555272747 source:e:\codeblock\pinball_official\main.cpp
 	"CommonFunction.h"
 	"BaseObject.h"
 	"Ball.h"
+	"Flapper.h"
 
 1555179855 t.h"
 
 1555179855 source:e:\codeblock\pinball_official\baseobject.cpp
 	"BaseObject.h"
 
-1555177576 e:\codeblock\pinball_official\commonfunction.h
+1555269586 e:\codeblock\pinball_official\commonfunction.h
 	<windows.h>
 	<string>
 	<SDL.h>
@@ -52,6 +53,13 @@
 	"Ball.h"
 
 1555231547 e:\codeblock\pinball_official\ball.h
+	"CommonFunction.h"
+	"BaseObject.h"
+
+1555272847 source:e:\codeblock\pinball_official\flapper.cpp
+	"Flapper.h"
+
+1555272571 e:\codeblock\pinball_official\flapper.h
 	"CommonFunction.h"
 	"BaseObject.h"
 

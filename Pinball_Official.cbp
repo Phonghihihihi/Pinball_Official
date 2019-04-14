@@ -38,6 +38,8 @@
 		<Unit filename="BaseObject.h" />
 		<Unit filename="CommonFunction.cpp" />
 		<Unit filename="CommonFunction.h" />
+		<Unit filename="Flapper.cpp" />
+		<Unit filename="Flapper.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

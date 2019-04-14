@@ -22,6 +22,17 @@ const int COLOR_KEY_G = 175;
 const int COLOR_KEY_B = 180;
 
 const int RENDER_DRAW_COLOR = 0xff;
+// Flapper
+const int X_POINT_DISTANCE = 56;
+const int Y_POINT_DISTANCE = 14;
+
+typedef struct input
+{
+    int left_flapper_;
+    int right_flapper_;
+    int launcher_;
+};
+
 
 
 

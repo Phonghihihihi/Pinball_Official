@@ -1,6 +1,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 #include "Ball.h"
+#include "Flapper.h"
 
 BaseObject g_background;
 
@@ -36,7 +37,7 @@ bool initData()
 
 bool loadBackground()
 {
-    bool ret = g_background.LoadImg("image/hihi.png", g_screen);
+    bool ret = g_background.LoadImg("image//hihi.png", g_screen);
     if (ret == false)
         return false;
 
@@ -68,6 +69,15 @@ int main(int argc, char* argv[])
     Ball ball;
     ball.LoadImg("image//ball.png", g_screen);
 
+    Flapper left_flapper;
+    left_flapper.LoadImg("image//Flapper_l.png", g_screen);
+    left_flapper.setPos(SCREEN_WIDTH/2-100,SCREEN_HEIGHT/2);
+
+    Flapper right_flapper;
+    right_flapper.LoadImg("image//Flapper_r.png", g_screen);
+    right_flapper.setPos(SCREEN_WIDTH/2+100,SCREEN_HEIGHT/2);
+
+
     bool is_quit= false;
     while(!is_quit)
     {
@@ -78,6 +88,9 @@ int main(int argc, char* argv[])
                 is_quit= true;
             }
 
+            left_flapper.HandleInputAction(g_event, g_screen);
+            right_flapper.HandleInputAction(g_event, g_screen);
+
         }
 
         SDL_SetRenderDrawColor(g_screen, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR);
@@ -86,6 +99,8 @@ int main(int argc, char* argv[])
         g_background.Render(g_screen, NULL);
 
         ball.Show(g_screen);
+        left_flapper.Show_l(g_screen);
+        right_flapper.Show_r(g_screen);
 
         SDL_RenderPresent(g_screen);
 
