@@ -32,6 +32,7 @@ void Flapper::Show_l(SDL_Renderer* des)
         angle_l=-60;
     }
     angle_l++;
+    if (angle_l>=0) angle_l =0;
     SDL_RenderCopyEx(des, p_object_, clip, &renderQuad, angle_l, NULL, SDL_FLIP_NONE);
 
 }
@@ -49,6 +50,7 @@ void Flapper::Show_r(SDL_Renderer* des)
         angle_r=60;
     }
     angle_r--;
+    if (angle_r<=0) angle_r =0;
     SDL_RenderCopyEx(des, p_object_, clip, &renderQuad, angle_r, NULL, SDL_FLIP_NONE);
 
 }
@@ -93,6 +95,3 @@ void Flapper::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
     }
 
 }
-
-
-

@@ -71,11 +71,11 @@ int main(int argc, char* argv[])
 
     Flapper left_flapper;
     left_flapper.LoadImg("image//Flapper_l.png", g_screen);
-    left_flapper.setPos(SCREEN_WIDTH/2-100,SCREEN_HEIGHT/2);
+    left_flapper.setPos(SCREEN_WIDTH/2-140,SCREEN_HEIGHT/2);
 
     Flapper right_flapper;
     right_flapper.LoadImg("image//Flapper_r.png", g_screen);
-    right_flapper.setPos(SCREEN_WIDTH/2+100,SCREEN_HEIGHT/2);
+    right_flapper.setPos(SCREEN_WIDTH/2+140,SCREEN_HEIGHT/2);
 
 
     bool is_quit= false;
