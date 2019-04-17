@@ -2,8 +2,8 @@
 
 Ball::Ball()
 {
-    x_pos_= SCREEN_WIDTH/2;
-    y_pos_= SCREEN_HEIGHT/2;
+    x_pos_= 100/2;
+    y_pos_= 100/2;
 }
 
 Ball::~Ball()

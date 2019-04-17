@@ -40,6 +40,8 @@
 		<Unit filename="CommonFunction.h" />
 		<Unit filename="Flapper.cpp" />
 		<Unit filename="Flapper.h" />
+		<Unit filename="Launcher.cpp" />
+		<Unit filename="Launcher.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
