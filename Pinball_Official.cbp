@@ -42,7 +42,6 @@
 		<Unit filename="Flapper.h" />
 		<Unit filename="Launcher.cpp" />
 		<Unit filename="Launcher.h" />
-		<Unit filename="Physics.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
