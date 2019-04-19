@@ -3,6 +3,8 @@
 #include "Ball.h"
 #include "Flapper.h"
 
+
+
 BaseObject g_background;
 
 bool initData()
@@ -71,11 +73,11 @@ int main(int argc, char* argv[])
 
     Flapper left_flapper;
     left_flapper.LoadImg("image//Flapper_l.png", g_screen);
-    left_flapper.setPos(SCREEN_WIDTH/2-280,SCREEN_HEIGHT/2);
+    left_flapper.setPos(SCREEN_WIDTH/2-280,SCREEN_HEIGHT/2+120);
 
     Flapper right_flapper;
     right_flapper.LoadImg("image//Flapper_r.png", g_screen);
-    right_flapper.setPos(SCREEN_WIDTH/2,SCREEN_HEIGHT/2);
+    right_flapper.setPos(SCREEN_WIDTH/2,SCREEN_HEIGHT/2+120);
 
 
     bool is_quit= false;
@@ -97,8 +99,10 @@ int main(int argc, char* argv[])
         SDL_RenderClear(g_screen);
 
         g_background.Render(g_screen, NULL);
-
+        ball.CheckCollision();
         ball.Show(g_screen);
+        ball.RunBall();
+
         left_flapper.Show_l(g_screen);
         right_flapper.Show_r(g_screen);
 

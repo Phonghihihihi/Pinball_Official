@@ -1,32 +1,26 @@
-#include "Ball.h"
 
-Ball::Ball()
+/**
+void CHUONG_NGAI_VAT()
 {
-    x= 530, y= 630;
-    dx= 0, dy =0;
-    f_x= 0.0, f_y = -20.0;
-    ddx = f_x / m, ddy = f_y / m;
-    R = 8;
+
+    DRAW_BALL(g_screen,BLUE_COLOR,275,60,20,TRON);
+    DRAW_BALL(g_screen,BLUE_COLOR,350,120,20,TRON);
+    DRAW_BALL(g_screen,BLUE_COLOR,200,120,20,TRON);
+
+    SDL_RenderDrawLine(g_screen,500, 0, 550, 50);
+    SDL_RenderDrawLine(g_screen,450,400,350,500);
+    SDL_RenderDrawLine(g_screen,100,400,200,500);
+    SDL_RenderDrawLine(g_screen,450,400,450,500);
+    SDL_RenderDrawLine(g_screen,100,400,100,500);
+    SDL_RenderDrawLine(g_screen,450,500,350,500);
+    SDL_RenderDrawLine(g_screen,100,500,200,500);
+
 
 }
-
-Ball::~Ball()
-{
-    ;
-}
-
-void Ball::Show(SDL_Renderer* des)
-{
-    rect_.x = x;
-    rect_.y = y;
-
-    SDL_Rect* clip = NULL;
-
-    SDL_Rect renderQuad = {rect_.x, rect_.y, rect_.w, rect_.h};
-
-    SDL_RenderCopy(des, p_object_, clip, &renderQuad);
-}
-void Ball::CheckCollision()
+*/
+/**
+void VA_CHAM(  double x, double y, double dx, double dy, double f_x, double f_y, double ddx, double ddy, double dt,
+    double d1,double d2,double d3,double d4,double d5,double d6,double d7,double d8,double d9,double d10, double R)
 {
                     d1 = abs( x - y - 500) / sqrt(2);
                     d2 = sqrt( pow(x - 275,2) + pow(y - 60, 2));
@@ -155,23 +149,12 @@ void Ball::CheckCollision()
 
                         dy =    -abs(dy) - 50.0;
                         dx =    - abs(dx) - 50.0;
-
-
-
-
-
-
                     }
                     if ( d6 <= R && y > 400 && y < 500 && x > 100 && x < 200 )
                     {
 
                         dx =   abs(dx) + 50.0;
                         dy =   -abs(dy) - 50.0;
-
-
-
-
-
                     }
 
                     if ( d7 <= R && y > 400 && y < 500)
@@ -188,7 +171,6 @@ void Ball::CheckCollision()
                     {
                         dy =abs(dy);
                     }
-
 
 
                     if ( sqrt( pow(x - 450, 2)  + pow( y - 500, 2) ) <= R )
@@ -223,40 +205,4 @@ void Ball::CheckCollision()
                         dy *= 0.99;
                     }
 }
-
-void Ball::RunBall()
-{
-//     std::cout<<dx<<" *** "<<dy;
-                    dx = dx + ddx * dt;
-                    dy = dy + ddy * dt;
-
-
-                    x = x + dx * dt + ddx * dt * dt / 2.0;
-                    y = y + dy * dt + ddy * dt * dt / 2.0;
-
-
-                    ddy = ddy + 10.0 * dt;
-                    x =(int) abs(x)%SCREEN_WIDTH;
-                    y =(int) abs(y)%SCREEN_HEIGHT;
-//                    std::cout<<x<<" "<<y;
-
-}
-
-void Ball::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
-{
-    if (events.type == SDL_KEYDOWN)
-    {
-        if (events.key.keysym.sym == SDLK_SPACE)
-        {
-            input_type_.launcher_ = 1;
-        }
-    }
-    else if (events.type == SDL_KEYUP)
-    {
-        if (events.key.keysym.sym == SDLK_SPACE)
-        {
-            input_type_.launcher_ = 0;
-        }
-    }
-}
-
+*/

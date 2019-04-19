@@ -4,7 +4,7 @@
 
 1555181881 ction.h"
 
-1555405120 source:e:\codeblock\pinball_official\main.cpp
+1555673455 source:e:\codeblock\pinball_official\main.cpp
 	"CommonFunction.h"
 	"BaseObject.h"
 	"Ball.h"
@@ -15,9 +15,11 @@
 1555179855 source:e:\codeblock\pinball_official\baseobject.cpp
 	"BaseObject.h"
 
-1555405010 e:\codeblock\pinball_official\commonfunction.h
+1555668698 e:\codeblock\pinball_official\commonfunction.h
 	<windows.h>
 	<string>
+	<math.h>
+	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -49,10 +51,10 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1555491775 source:e:\codeblock\pinball_official\ball.cpp
+1555672952 source:e:\codeblock\pinball_official\ball.cpp
 	"Ball.h"
 
-1555231547 e:\codeblock\pinball_official\ball.h
+1555672297 e:\codeblock\pinball_official\ball.h
 	"CommonFunction.h"
 	"BaseObject.h"
 
@@ -63,10 +65,20 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1555491851 source:e:\codeblock\pinball_official\launcher.cpp
+1555508268 source:e:\codeblock\pinball_official\launcher.cpp
 	"Launcher.h"
 
 1555434950 e:\codeblock\pinball_official\launcher.h
 	"CommonFunction.h"
 	"BaseObject.h"
+
+1555654306 source:e:\codeblock\pinball_official\game_physics.cpp
+	"Game_Physics.h"
+
+1555655008 e:\codeblock\pinball_official\game_physics.h
+
+1555657147 e:\codeblock\pinball_official\physics.h
+	"CommonFunction.h"
+
+1555657288 source:e:\codeblock\pinball_official\physics.cpp
 
