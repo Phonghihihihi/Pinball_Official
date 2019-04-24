@@ -1,6 +1,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 #include "Ball.h"
+#include "Launcher.h"
 #include "Flapper.h"
 
 
@@ -79,6 +80,8 @@ int main(int argc, char* argv[])
     right_flapper.LoadImg("image//Flapper_r.png", g_screen);
     right_flapper.setPos(SCREEN_WIDTH/2,SCREEN_HEIGHT/2+120);
 
+    Launcher launcher;
+
 
     bool is_quit= false;
     while(!is_quit)
@@ -92,6 +95,7 @@ int main(int argc, char* argv[])
 
             left_flapper.HandleInputAction(g_event, g_screen);
             right_flapper.HandleInputAction(g_event, g_screen);
+            ball.HandleInputAction(g_event, g_screen);
 
         }
 
@@ -101,7 +105,12 @@ int main(int argc, char* argv[])
         g_background.Render(g_screen, NULL);
         ball.CheckCollision();
         ball.Show(g_screen);
-        ball.RunBall();
+        ball.isRan();
+        if ( ball.flag)
+        {
+            ball.RunBall();
+        }
+
 
         left_flapper.Show_l(g_screen);
         right_flapper.Show_r(g_screen);

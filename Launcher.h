@@ -4,7 +4,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 
-struct Launcher: public BaseObject
+class Launcher: public BaseObject
 {
 public:
     Launcher();

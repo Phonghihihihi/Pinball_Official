@@ -3,7 +3,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 
-struct Ball: public BaseObject
+class Ball: public BaseObject
 {
 public:
     Ball();
@@ -11,9 +11,11 @@ public:
     void Show(SDL_Renderer* des);
     void CheckCollision ();
     void RunBall();
+    void isRan();
     void HandleInputAction(SDL_Event events, SDL_Renderer* screen);
 
     const double PI = M_PI;
+    bool flag = false;
     double R = 0;
     double m = 0.3;
     double x = 230, y = 300;

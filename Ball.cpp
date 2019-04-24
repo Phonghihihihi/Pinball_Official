@@ -217,7 +217,7 @@ void Ball::CheckCollision()
                         dy = -abs(dy) ;
                     }
 
-                    if( dx > 500 && dy > 500)
+                    if( dx > 300 && dy > 300)
                     {
                         dx *= 0.99;
                         dy *= 0.99;
@@ -226,7 +226,7 @@ void Ball::CheckCollision()
 
 void Ball::RunBall()
 {
-//     std::cout<<dx<<" *** "<<dy;
+     std::cout<<dx<<" *** "<<dy<<"/";
                     dx = dx + ddx * dt;
                     dy = dy + ddy * dt;
 
@@ -236,10 +236,15 @@ void Ball::RunBall()
 
 
                     ddy = ddy + 10.0 * dt;
-                    x =(int) abs(x)%SCREEN_WIDTH;
-                    y =(int) abs(y)%SCREEN_HEIGHT;
+//                    x =(int) abs(x)%SCREEN_WIDTH;
+//                    y =(int) abs(y)%SCREEN_HEIGHT;
 //                    std::cout<<x<<" "<<y;
 
+}
+
+void Ball::isRan()
+{
+    if (input_type_.launcher_ == 1) flag = true;
 }
 
 void Ball::HandleInputAction(SDL_Event events, SDL_Renderer* screen)

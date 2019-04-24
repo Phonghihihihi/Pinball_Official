@@ -45,3 +45,4 @@ void Launcher::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
         }
     }
 }
+

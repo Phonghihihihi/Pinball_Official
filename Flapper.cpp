@@ -29,10 +29,11 @@ void Flapper::Show_l(SDL_Renderer* des)
 
     if (input_type_.left_flapper_==1)
     {
-        angle_l=-60;
+        angle_l-=1.99;
     }
     angle_l++;
-    if (angle_l>=0) angle_l =0;
+    if (angle_l<=-60) angle_l = -60;
+    else if (angle_l>=0) angle_l =0;
     SDL_RenderCopyEx(des, p_object_, clip, &renderQuad, angle_l, NULL, SDL_FLIP_NONE);
 
 }
@@ -47,10 +48,11 @@ void Flapper::Show_r(SDL_Renderer* des)
 
     if (input_type_.right_flapper_==1)
     {
-        angle_r=60;
+        angle_r+=1.99;
     }
     angle_r--;
-    if (angle_r<=0) angle_r =0;
+    if (angle_r>=60) angle_r =60;
+    else if (angle_r<=0) angle_r =0;
     SDL_RenderCopyEx(des, p_object_, clip, &renderQuad, angle_r, NULL, SDL_FLIP_NONE);
 
 }

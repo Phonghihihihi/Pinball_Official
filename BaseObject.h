@@ -2,7 +2,7 @@
 #define BASEOBJECT_H_INCLUDED
 #include"CommonFunction.h"
 
-struct BaseObject
+class BaseObject
 {
 public:
     BaseObject();
