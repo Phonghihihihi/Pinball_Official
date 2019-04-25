@@ -22,30 +22,31 @@ const int SCREEN_BPP = 32;
 const int COLOR_KEY_R = 167;
 const int COLOR_KEY_G = 175;
 const int COLOR_KEY_B = 180;
-const SDL_Color BLUE_COLOR = { 0, 255,255};
+const SDL_Color BLUE_COLOR = { 0,255,255};
 
 const int RENDER_DRAW_COLOR = 0xff;
 
 // Components
-/**
-    x = 530.0;
-    y = 630.0;
-    f_x = -0.0;
-    f_y = -70.0;
-    R = 8;
+const int FLAPPER_LEFT_X_POS =  200;
+const int FLAPPER_RIGHT_X_POS = 350;
+const int FLAPPER_LEFT_Y_POS =  500;
+const int FLAPPER_RIGHT_Y_POS = 500;
+const double RADIAN = M_PI/180;
 
-const double PI = M_PI;
-double R = 0;
-double m = 0.3;
-    double x = 0, y = 0;
-    double dx = 0, dy = 0;
-    double f_x = 0, f_y = 0;
-    double ddx = f_y/m, ddy = f_y/m;
-    double dt = 0.009;
-    double d1= 0,d2=0,d3=0,d4=0,d5=0,d6=0,d7=0,d8=0,d9=0,d10=0;
-    double past_x = 0, past_y = 0;
+//Bump
+const int LEFT_TRIANGLE_X_POS = 100;
+const int LEFT_TRIANGLE_Y_POS = 410;
+const int RIGHT_TRIANGLE_X_POS = 350;
+const int RIGHT_TRIANGLE_Y_POS = 410;
+const int CIRCLE_100_X_POS = 275-14;
+const int CIRCLE_100_Y_POS = 60-14;
+const int CIRCLE_50_X_POS = 350-14;
+const int CIRCLE_50_Y_POS = 120-14;
+const int CIRCLE_25_X_POS = 200-14;
+const int CIRCLE_25_Y_POS = 120-14;
 
-*/
+
+
 // Input
 typedef struct input
 {

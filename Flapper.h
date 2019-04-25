@@ -11,7 +11,7 @@ public:
     void Show_l(SDL_Renderer* des);
     void Show_r(SDL_Renderer* des);
     void HandleInputAction(SDL_Event events, SDL_Renderer* screen);
-    void setPos(int x, int y);
+    void setPos(float x, float y);
 
 
 private:

@@ -3,7 +3,8 @@
 #include "Ball.h"
 #include "Launcher.h"
 #include "Flapper.h"
-
+#include "FlapperCollision.h"
+#include "Bump.h"
 
 
 BaseObject g_background;
@@ -68,19 +69,42 @@ int main(int argc, char* argv[])
 
     if (loadBackground()== false)
         return -1;
+/** Load Component */
 
     Ball ball;
     ball.LoadImg("image//ball.png", g_screen);
 
     Flapper left_flapper;
     left_flapper.LoadImg("image//Flapper_l.png", g_screen);
-    left_flapper.setPos(SCREEN_WIDTH/2-280,SCREEN_HEIGHT/2+120);
+    left_flapper.setPos(FLAPPER_LEFT_X_POS-56.5,FLAPPER_LEFT_Y_POS-16.5);
 
     Flapper right_flapper;
     right_flapper.LoadImg("image//Flapper_r.png", g_screen);
-    right_flapper.setPos(SCREEN_WIDTH/2,SCREEN_HEIGHT/2+120);
+    right_flapper.setPos(FLAPPER_RIGHT_X_POS-56.5, FLAPPER_RIGHT_Y_POS-16.5);
+
+    FlapperCollision left;
+    left.SetPos(FLAPPER_LEFT_X_POS, FLAPPER_LEFT_Y_POS);
+
+    FlapperCollision right;
+    right.SetPos(FLAPPER_RIGHT_X_POS, FLAPPER_RIGHT_Y_POS);
+
+    Bump left_triangle, right_triangle;
+    left_triangle.LoadImg("image//Triangle_l.png", g_screen);
+    right_triangle.LoadImg("image//Triangle_r.png", g_screen);
+    left_triangle.setPos(LEFT_TRIANGLE_X_POS, LEFT_TRIANGLE_Y_POS);
+    right_triangle.setPos(RIGHT_TRIANGLE_X_POS, RIGHT_TRIANGLE_Y_POS);
+
+    Bump circle_100, circle_50, circle_25;
+    circle_100.LoadImg("image//Circle_100.png", g_screen);
+    circle_50.LoadImg("image//Circle_50.png", g_screen);
+    circle_25.LoadImg("image//Circle_25.png", g_screen);
+    circle_100.setPos(CIRCLE_100_X_POS, CIRCLE_100_Y_POS);
+    circle_50.setPos(CIRCLE_50_X_POS, CIRCLE_50_Y_POS);
+    circle_25.setPos(CIRCLE_25_X_POS, CIRCLE_25_Y_POS);
+
 
     Launcher launcher;
+
 
 
     bool is_quit= false;
@@ -96,6 +120,8 @@ int main(int argc, char* argv[])
             left_flapper.HandleInputAction(g_event, g_screen);
             right_flapper.HandleInputAction(g_event, g_screen);
             ball.HandleInputAction(g_event, g_screen);
+            left.HandleInputAction(g_event, g_screen);
+            right.HandleInputAction(g_event, g_screen);
 
         }
 
@@ -103,6 +129,14 @@ int main(int argc, char* argv[])
         SDL_RenderClear(g_screen);
 
         g_background.Render(g_screen, NULL);
+        SDL_Delay(5);
+        left_triangle.Show(g_screen);
+        right_triangle.Show(g_screen);
+
+        circle_100.Show(g_screen);
+        circle_50.Show(g_screen);
+        circle_25.Show(g_screen);
+
         ball.CheckCollision();
         ball.Show(g_screen);
         ball.isRan();
@@ -111,9 +145,12 @@ int main(int argc, char* argv[])
             ball.RunBall();
         }
 
+        left.CheckFlapperCollision(&ball);
 
         left_flapper.Show_l(g_screen);
         right_flapper.Show_r(g_screen);
+        left.DrawFlapper_l(g_screen);
+        right.DrawFlapper_r(g_screen);
 
         SDL_RenderPresent(g_screen);
 

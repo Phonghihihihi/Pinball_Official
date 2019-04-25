@@ -7,6 +7,7 @@ Flapper::Flapper()
     y_pos_=0;
     angle_l=0;
     angle_r=0;
+    point_= {56, 20};
 }
 
 Flapper::~Flapper()
@@ -14,7 +15,7 @@ Flapper::~Flapper()
     ;
 }
 
-void Flapper::setPos(int x, int y)
+void Flapper::setPos(float x, float y)
 {
     x_pos_ = x, y_pos_ = y;
 }
