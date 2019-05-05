@@ -6,6 +6,7 @@
 #include "FlapperCollision.h"
 #include "Bump.h"
 #include "TextObject.h"
+#include "Menu_game.h"
 
 BaseObject g_background;
 TTF_Font* font_time = NULL;
@@ -81,6 +82,10 @@ int main(int argc, char* argv[])
     if (loadBackground()== false)
         return -1;
 /** Load Component */
+
+    int score;
+    MenuGame g_menu;
+    g_menu.Menu_game(g_screen,g_window);
 
     Ball* ball = NULL;
     ball = new Ball;
@@ -172,7 +177,8 @@ int main(int argc, char* argv[])
 
         if (ball->isGameOver())
         {
-            delete ball;
+            bool ret=g_menu.Play_again(g_screen,g_window,1000);
+            if(ret) is_quit=false;
         }
     }
 

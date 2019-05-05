@@ -17,7 +17,8 @@ Ball::Ball()
 
 Ball::~Ball()
 {
-    ;
+    x= NULL;
+    y= NULL;
 }
 
 void Ball::Show(SDL_Renderer* des)

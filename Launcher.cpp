@@ -15,7 +15,7 @@ void Launcher::Show(SDL_Renderer* des, Ball* ball)
 {
     rect_.x = x_pos_;
     rect_.y = y_pos_;
-    int power= rect_.h - ball->v_input_/5;
+//    int power= rect_.h - ball->v_input_/5;
 
     SDL_Rect* clip = NULL;
     SDL_Rect renderQuad = {rect_.x, rect_.y, rect_.w, rect_.h};

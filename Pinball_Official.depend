@@ -4,7 +4,7 @@
 
 1555181881 ction.h"
 
-1557049779 source:e:\codeblock\pinball_official\main.cpp
+1557069097 source:e:\codeblock\pinball_official\main.cpp
 	"CommonFunction.h"
 	"BaseObject.h"
 	"Ball.h"
@@ -13,13 +13,14 @@
 	"FlapperCollision.h"
 	"Bump.h"
 	"TextObject.h"
+	"Menu_game.h"
 
 1555179855 t.h"
 
-1556805114 source:e:\codeblock\pinball_official\baseobject.cpp
+1557066199 source:e:\codeblock\pinball_official\baseobject.cpp
 	"BaseObject.h"
 
-1556899313 e:\codeblock\pinball_official\commonfunction.h
+1557065973 e:\codeblock\pinball_official\commonfunction.h
 	<windows.h>
 	<string>
 	<math.h>
@@ -31,7 +32,7 @@
 
 1555177576 >
 
-1556805540 e:\codeblock\pinball_official\baseobject.h
+1557066108 e:\codeblock\pinball_official\baseobject.h
 	"CommonFunction.h"
 
 1555179855 source:/mnt/E/Codeblock/Pinball_Official/BaseObject.cpp
@@ -55,7 +56,7 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1557047981 source:e:\codeblock\pinball_official\ball.cpp
+1557069066 source:e:\codeblock\pinball_official\ball.cpp
 	"Ball.h"
 
 1557047788 e:\codeblock\pinball_official\ball.h
@@ -69,7 +70,7 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1557044024 source:e:\codeblock\pinball_official\launcher.cpp
+1557070050 source:e:\codeblock\pinball_official\launcher.cpp
 	"Launcher.h"
 
 1557042341 e:\codeblock\pinball_official\launcher.h
@@ -102,12 +103,23 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1556808470 source:e:\codeblock\pinball_official\textobject.cpp
+1557065873 source:e:\codeblock\pinball_official\textobject.cpp
 	"TextObject.h"
-	"CommonFunction.h"
-	"BaseObject.h"
 
-1556808494 e:\codeblock\pinball_official\textobject.h
+1557065898 e:\codeblock\pinball_official\textobject.h
 	"BaseObject.h"
+	<string>
+	<SDL_ttf.h>
 	"CommonFunction.h"
+	<fstream>
+
+1557065901 e:\codeblock\pinball_official\menu_game.h
+	"BaseObject.h"
+	<fstream>
+	<vector>
+	"TextObject.h"
+	<string>
+
+1557068647 source:e:\codeblock\pinball_official\menu_game.cpp
+	"Menu_game.h"
 

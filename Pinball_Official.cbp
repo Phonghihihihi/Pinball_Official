@@ -46,6 +46,8 @@
 		<Unit filename="FlapperCollision.h" />
 		<Unit filename="Launcher.cpp" />
 		<Unit filename="Launcher.h" />
+		<Unit filename="Menu_game.cpp" />
+		<Unit filename="Menu_game.h" />
 		<Unit filename="TextObject.cpp" />
 		<Unit filename="TextObject.h" />
 		<Unit filename="main.cpp" />
