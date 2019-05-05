@@ -34,10 +34,10 @@ const int FLAPPER_RIGHT_Y_POS = 500;
 const double RADIAN = M_PI/180;
 
 //Bump
-const int LEFT_TRIANGLE_X_POS = 100;
-const int LEFT_TRIANGLE_Y_POS = 410;
-const int RIGHT_TRIANGLE_X_POS = 350;
-const int RIGHT_TRIANGLE_Y_POS = 410;
+const int LEFT_TRIANGLE_X_POS = 99;
+const int LEFT_TRIANGLE_Y_POS = 420;
+const int RIGHT_TRIANGLE_X_POS = 355;
+const int RIGHT_TRIANGLE_Y_POS = 420;
 const int CIRCLE_100_X_POS = 275-14;
 const int CIRCLE_100_Y_POS = 60-14;
 const int CIRCLE_50_X_POS = 350-14;
@@ -53,6 +53,13 @@ typedef struct input
     int left_flapper_;
     int right_flapper_;
     int launcher_;
+};
+
+//
+enum WhichFlapper
+{
+    LEFT,
+    RIGHT
 };
 
 

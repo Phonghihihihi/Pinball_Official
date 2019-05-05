@@ -4,7 +4,7 @@
 
 1555181881 ction.h"
 
-1556224081 source:e:\codeblock\pinball_official\main.cpp
+1557049779 source:e:\codeblock\pinball_official\main.cpp
 	"CommonFunction.h"
 	"BaseObject.h"
 	"Ball.h"
@@ -12,13 +12,14 @@
 	"Flapper.h"
 	"FlapperCollision.h"
 	"Bump.h"
+	"TextObject.h"
 
 1555179855 t.h"
 
-1555179855 source:e:\codeblock\pinball_official\baseobject.cpp
+1556805114 source:e:\codeblock\pinball_official\baseobject.cpp
 	"BaseObject.h"
 
-1556224438 e:\codeblock\pinball_official\commonfunction.h
+1556899313 e:\codeblock\pinball_official\commonfunction.h
 	<windows.h>
 	<string>
 	<math.h>
@@ -30,7 +31,7 @@
 
 1555177576 >
 
-1556008313 e:\codeblock\pinball_official\baseobject.h
+1556805540 e:\codeblock\pinball_official\baseobject.h
 	"CommonFunction.h"
 
 1555179855 source:/mnt/E/Codeblock/Pinball_Official/BaseObject.cpp
@@ -54,26 +55,27 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1556215893 source:e:\codeblock\pinball_official\ball.cpp
+1557047981 source:e:\codeblock\pinball_official\ball.cpp
 	"Ball.h"
 
-1556215877 e:\codeblock\pinball_official\ball.h
+1557047788 e:\codeblock\pinball_official\ball.h
 	"CommonFunction.h"
 	"BaseObject.h"
 
 1556222384 source:e:\codeblock\pinball_official\flapper.cpp
 	"Flapper.h"
 
-1556222310 e:\codeblock\pinball_official\flapper.h
+1556900897 e:\codeblock\pinball_official\flapper.h
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1556085650 source:e:\codeblock\pinball_official\launcher.cpp
+1557044024 source:e:\codeblock\pinball_official\launcher.cpp
 	"Launcher.h"
 
-1556008313 e:\codeblock\pinball_official\launcher.h
+1557042341 e:\codeblock\pinball_official\launcher.h
 	"CommonFunction.h"
 	"BaseObject.h"
+	"Ball.h"
 
 1555654306 source:e:\codeblock\pinball_official\game_physics.cpp
 	"Game_Physics.h"
@@ -85,17 +87,27 @@
 
 1555657288 source:e:\codeblock\pinball_official\physics.cpp
 
-1556216048 source:e:\codeblock\pinball_official\flappercollision.cpp
+1557047429 source:e:\codeblock\pinball_official\flappercollision.cpp
 	"FlapperCollision.h"
 
-1556215398 e:\codeblock\pinball_official\flappercollision.h
+1556900770 e:\codeblock\pinball_official\flappercollision.h
 	"CommonFunction.h"
 	"Ball.h"
+	"Flapper.h"
 
-1556224031 source:e:\codeblock\pinball_official\bump.cpp
+1557043080 source:e:\codeblock\pinball_official\bump.cpp
 	"Bump.h"
 
 1556224087 e:\codeblock\pinball_official\bump.h
 	"CommonFunction.h"
 	"BaseObject.h"
+
+1556808470 source:e:\codeblock\pinball_official\textobject.cpp
+	"TextObject.h"
+	"CommonFunction.h"
+	"BaseObject.h"
+
+1556808494 e:\codeblock\pinball_official\textobject.h
+	"BaseObject.h"
+	"CommonFunction.h"
 

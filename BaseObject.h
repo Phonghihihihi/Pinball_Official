@@ -17,6 +17,7 @@ public:
 
 protected:
     SDL_Texture* p_object_;
+    SDL_Surface* p_object_sur_;
     SDL_Rect rect_;
 
 };

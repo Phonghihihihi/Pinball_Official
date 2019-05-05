@@ -3,6 +3,7 @@
 BaseObject::BaseObject()
 {
     p_object_ = NULL;
+    p_object_sur_ = NULL;
     rect_.x = 0;
     rect_.y = 0;
     rect_.h = 0;

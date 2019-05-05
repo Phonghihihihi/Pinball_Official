@@ -3,6 +3,7 @@
 
 #include "CommonFunction.h"
 #include "Ball.h"
+#include "Flapper.h"
 
 class FlapperCollision
 {
@@ -13,10 +14,10 @@ public:
     void DrawFlapper_r(SDL_Renderer* des);
     void SetPos(int x, int y);
     void HandleInputAction(SDL_Event events, SDL_Renderer* screen);
-    bool isDistanceFromBallLessThanOrEqualFlapperLength(Ball* ball);
-    bool isBallCollideWithFlapper(Ball* ball);
-    void CheckFlapperCollision(Ball* ball);
-
+    WhichFlapper isDistanceFromBallLessThanOrEqualFlapperLength(Ball* ball);
+    WhichFlapper isBallCollideWithFlapper(Ball* ball);
+    void CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapper_l, Flapper* flapper_r);
+//    void FlapperAndBallCollisionHandling(Ball* ball, Flapper* flapper_l, Flapper* flapper_r);
 
 private:
     double angle_l, angle_r;

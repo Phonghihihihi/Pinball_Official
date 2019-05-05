@@ -5,9 +5,10 @@
 #include "Flapper.h"
 #include "FlapperCollision.h"
 #include "Bump.h"
-
+#include "TextObject.h"
 
 BaseObject g_background;
+TTF_Font* font_time = NULL;
 
 bool initData()
 {
@@ -34,6 +35,16 @@ bool initData()
             if (!(IMG_Init(imgFlags) && imgFlags))
                 success= false;
         }
+
+            if(TTF_Init()==-1)
+            {
+                success=false;
+            }
+            font_time=TTF_OpenFont("font//dlxfont.ttf",15);
+            if(font_time==NULL)
+            {
+                success=true;
+            }
     }
     return success;
 
@@ -41,7 +52,7 @@ bool initData()
 
 bool loadBackground()
 {
-    bool ret = g_background.LoadImg("image//hihi.png", g_screen);
+    bool ret = g_background.LoadImg("image//test.png", g_screen);
     if (ret == false)
         return false;
 
@@ -71,15 +82,17 @@ int main(int argc, char* argv[])
         return -1;
 /** Load Component */
 
-    Ball ball;
-    ball.LoadImg("image//ball.png", g_screen);
+    Ball* ball = NULL;
+    ball = new Ball;
+
+    ball->LoadImg("image//ball_true.png", g_screen);
 
     Flapper left_flapper;
-    left_flapper.LoadImg("image//Flapper_l.png", g_screen);
-    left_flapper.setPos(FLAPPER_LEFT_X_POS-56.5,FLAPPER_LEFT_Y_POS-16.5);
+    left_flapper.LoadImg("image//Flapper_le.png", g_screen);
+    left_flapper.setPos(FLAPPER_LEFT_X_POS-52.5,FLAPPER_LEFT_Y_POS-16.5);
 
     Flapper right_flapper;
-    right_flapper.LoadImg("image//Flapper_r.png", g_screen);
+    right_flapper.LoadImg("image//Flapper_ri.png", g_screen);
     right_flapper.setPos(FLAPPER_RIGHT_X_POS-56.5, FLAPPER_RIGHT_Y_POS-16.5);
 
     FlapperCollision left;
@@ -88,9 +101,13 @@ int main(int argc, char* argv[])
     FlapperCollision right;
     right.SetPos(FLAPPER_RIGHT_X_POS, FLAPPER_RIGHT_Y_POS);
 
+    Launcher launcher;
+    launcher.LoadImg("image//Launcher.png", g_screen);
+    launcher.setPos(510, 340);
+
     Bump left_triangle, right_triangle;
-    left_triangle.LoadImg("image//Triangle_l.png", g_screen);
-    right_triangle.LoadImg("image//Triangle_r.png", g_screen);
+    left_triangle.LoadImg("image//Triangle_le.png", g_screen);
+    right_triangle.LoadImg("image//Triangle_ri.png", g_screen);
     left_triangle.setPos(LEFT_TRIANGLE_X_POS, LEFT_TRIANGLE_Y_POS);
     right_triangle.setPos(RIGHT_TRIANGLE_X_POS, RIGHT_TRIANGLE_Y_POS);
 
@@ -102,8 +119,6 @@ int main(int argc, char* argv[])
     circle_50.setPos(CIRCLE_50_X_POS, CIRCLE_50_Y_POS);
     circle_25.setPos(CIRCLE_25_X_POS, CIRCLE_25_Y_POS);
 
-
-    Launcher launcher;
 
 
 
@@ -119,7 +134,7 @@ int main(int argc, char* argv[])
 
             left_flapper.HandleInputAction(g_event, g_screen);
             right_flapper.HandleInputAction(g_event, g_screen);
-            ball.HandleInputAction(g_event, g_screen);
+            ball->HandleInputAction(g_event, g_screen);
             left.HandleInputAction(g_event, g_screen);
             right.HandleInputAction(g_event, g_screen);
 
@@ -129,23 +144,24 @@ int main(int argc, char* argv[])
         SDL_RenderClear(g_screen);
 
         g_background.Render(g_screen, NULL);
-        SDL_Delay(5);
+//        SDL_Delay(3);
         left_triangle.Show(g_screen);
         right_triangle.Show(g_screen);
 
         circle_100.Show(g_screen);
         circle_50.Show(g_screen);
         circle_25.Show(g_screen);
+        launcher.Show(g_screen, ball);
 
-        ball.CheckCollision();
-        ball.Show(g_screen);
-        ball.isRan();
-        if ( ball.flag)
+        ball->CheckCollision();
+        ball->Show(g_screen);
+        ball->isRan();
+        if (ball->flag==true)
         {
-            ball.RunBall();
+            ball->RunBall();
         }
 
-        left.CheckFlapperCollision(&ball);
+        left.CheckAndHandleFlapperCollision(ball, &left_flapper, &right_flapper);
 
         left_flapper.Show_l(g_screen);
         right_flapper.Show_r(g_screen);
@@ -154,6 +170,10 @@ int main(int argc, char* argv[])
 
         SDL_RenderPresent(g_screen);
 
+        if (ball->isGameOver())
+        {
+            delete ball;
+        }
     }
 
     close();

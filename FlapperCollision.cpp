@@ -92,38 +92,65 @@ void FlapperCollision::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
     }
 }
 
-bool FlapperCollision::isDistanceFromBallLessThanOrEqualFlapperLength(Ball* ball)
+WhichFlapper FlapperCollision::isDistanceFromBallLessThanOrEqualFlapperLength(Ball* ball)
 {
     double distance_from_ball_to_point_l = sqrt(pow(*ball->x-FLAPPER_LEFT_X_POS,2) + pow(*ball->y-FLAPPER_LEFT_Y_POS,2));
     double distance_from_ball_to_point_r = sqrt(pow(*ball->x-FLAPPER_RIGHT_X_POS,2) + pow(*ball->y-FLAPPER_RIGHT_Y_POS,2));
-    if (distance_from_ball_to_point_l <= flapper_length_ || distance_from_ball_to_point_r <= flapper_length_) return true;
-        else return false;
+    if (distance_from_ball_to_point_l <= flapper_length_)
+        return LEFT;
+    else if (distance_from_ball_to_point_r <= flapper_length_)
+        return RIGHT;
 }
 
-bool FlapperCollision::isBallCollideWithFlapper(Ball* ball)
+WhichFlapper FlapperCollision::isBallCollideWithFlapper(Ball* ball)
 {
     double distance_from_ball_to_flapper_l = fabs(tan(angle_l*RADIAN)*(*ball->x)-(*ball->y)+FLAPPER_LEFT_Y_POS-FLAPPER_LEFT_X_POS*tan(angle_l*RADIAN))
                                                 /(sqrt(pow(tan(angle_l*RADIAN),2))+1);
     double distance_from_ball_to_flapper_r = fabs(tan(angle_r*RADIAN)*(*ball->x)-(*ball->y)+FLAPPER_RIGHT_Y_POS-FLAPPER_RIGHT_X_POS*tan(angle_r*RADIAN))
                                                 /(sqrt(pow(tan(angle_r*RADIAN),2))+1);
-    if (distance_from_ball_to_flapper_l<= ball->R || distance_from_ball_to_flapper_r<= ball->R) return true;
-        else return false;
+    std::cout<<distance_from_ball_to_flapper_l<<"-"<<distance_from_ball_to_flapper_r<<"/";
+    if (distance_from_ball_to_flapper_l<= ball->R)
+        return LEFT;
+    if (distance_from_ball_to_flapper_r<= ball->R)
+        return RIGHT;
 }
 
-void FlapperCollision::CheckFlapperCollision(Ball* ball)
+void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapper_l, Flapper* flapper_r)
 {
 //    double distance_from_ball_to_point = sqrt(pow(*x-FLAPPER_LEFT_X_POS,2) + pow(*y-FLAPPER_LEFT_Y_POS,2));
 //    std::cout<<*x<<"-"<<*y<<"/";
-    if (isDistanceFromBallLessThanOrEqualFlapperLength(ball))
+    double distance_from_ball_to_point_l = sqrt(pow(*ball->x-FLAPPER_LEFT_X_POS,2) + pow(*ball->y-FLAPPER_LEFT_Y_POS,2));
+    double distance_from_ball_to_point_r = sqrt(pow(*ball->x-FLAPPER_RIGHT_X_POS,2) + pow(*ball->y-FLAPPER_RIGHT_Y_POS,2));
+
+    if (isDistanceFromBallLessThanOrEqualFlapperLength(ball)== LEFT)
     {
-        if (isBallCollideWithFlapper(ball))
+        if (isBallCollideWithFlapper(ball)== LEFT)
         {
-            ball->dy = -ball->dy;
+//            ball->dy = -fabs(ball->dy) -50 ;
+//            ball->dx = ball->dx + 50;
+//            ball->dx = ball->dx + distance_from_ball_to_point_l + cos(flapper_l->angle_l)*30;
+            ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_l - cos(flapper_l->angle_l)*30;
+
+        }
+    }
+    else if (isDistanceFromBallLessThanOrEqualFlapperLength(ball)== RIGHT)
+    {
+        if (isBallCollideWithFlapper(ball)== RIGHT)
+        {
+//            ball->dx = ball->dx + distance_from_ball_to_point_r + cos(flapper_r->angle_r)*30;
+            ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_r - cos(flapper_r->angle_r)*30;
         }
     }
 }
-
-
+//
+//void FlapperCollision::FlapperAndBallCollisionHandling(Ball* ball, Flapper* flapper_l, Flapper* flapper_r)
+//{
+//
+//
+//    ball->dx = ball->dx + distance_from_ball_to_point_l/3 + cos(flapper_l->angle_l)*30;
+//    ball->dy = -fabs(ball->dy) + distance_from_ball_to_point_l/3 + cos(flapper_l->angle_l)*30;
+//
+//}
 
 
 

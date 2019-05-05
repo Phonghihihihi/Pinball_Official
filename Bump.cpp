@@ -26,4 +26,5 @@ void Bump::Show(SDL_Renderer* des)
     SDL_Rect renderQuad = {rect_.x, rect_.y, rect_.w, rect_.h};
 
     SDL_RenderCopy(des, p_object_, clip, &renderQuad);
+
 }

@@ -3,7 +3,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 
-struct Flapper: public BaseObject
+class Flapper: public BaseObject
 {
 public:
     Flapper();
@@ -13,13 +13,13 @@ public:
     void HandleInputAction(SDL_Event events, SDL_Renderer* screen);
     void setPos(float x, float y);
 
+    double angle_l;
+    double angle_r;
 
 private:
     float x_pos_;
     float y_pos_;
     SDL_Point point_;
-    double angle_l;
-    double angle_r;
 
     input input_type_;
 
