@@ -119,28 +119,33 @@ void MenuGame::Menu_game(SDL_Renderer* ren, SDL_Window* window){
 bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window, int score)
 {
 
-    SDL_Texture* try_again= LoadPNG("image//e_try",ren);
-    SDL_Texture* e_background= LoadPNG("image//e_background",ren);
-    SDL_Texture* e_quit= LoadPNG("image//e_quit",ren);
+    SDL_Texture* try_again= LoadPNG("image//e_try.png",ren);
+    SDL_Texture* e_background= LoadPNG("image//e_background.png",ren);
+    SDL_Texture* e_quit= LoadPNG("image//e_quit.png",ren);
+
+    if (try_again== nullptr || e_background==nullptr || e_quit==nullptr)
+        {
+        SDL_DestroyTexture(try_again);
+        SDL_DestroyTexture(e_background);
+        SDL_DestroyTexture(e_quit);
+
+        }
 
     TextObject YourScore("Your Score: ");
     YourScore.str_ += std::to_string(score);
     SDL_Texture* your_text = YourScore.GetText(30,ren);
 
-    BaseObject::renderTexture(e_background,ren,0,0);
+    renderTexture(e_background,ren,0,0);
     int x,y;
     while(true)
     {
-        BaseObject::renderTexture(your_text, ren, SCREEN_WIDTH/2 , SCREEN_HEIGHT/2);
+        renderTexture(your_text, ren, SCREEN_WIDTH/2-120 , SCREEN_HEIGHT/2);
         SDL_RenderPresent(ren);
         if (SDL_WaitEvent(&m_event) == 0) continue;
 
         if (m_event.type == SDL_QUIT)
             return false;
-//            Try again là:  - 421
-//Quit là 303 - 421
-//W:129
-//H:83
+
         else if(m_event.type == SDL_MOUSEMOTION){
             x = m_event.motion.x;
             y = m_event.motion.y;

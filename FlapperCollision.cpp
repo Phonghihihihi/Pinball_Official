@@ -117,8 +117,7 @@ WhichFlapper FlapperCollision::isBallCollideWithFlapper(Ball* ball)
 
 void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapper_l, Flapper* flapper_r)
 {
-//    double distance_from_ball_to_point = sqrt(pow(*x-FLAPPER_LEFT_X_POS,2) + pow(*y-FLAPPER_LEFT_Y_POS,2));
-//    std::cout<<*x<<"-"<<*y<<"/";
+
     double distance_from_ball_to_point_l = sqrt(pow(*ball->x-FLAPPER_LEFT_X_POS,2) + pow(*ball->y-FLAPPER_LEFT_Y_POS,2));
     double distance_from_ball_to_point_r = sqrt(pow(*ball->x-FLAPPER_RIGHT_X_POS,2) + pow(*ball->y-FLAPPER_RIGHT_Y_POS,2));
 
@@ -129,6 +128,11 @@ void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapp
 //            ball->dy = -fabs(ball->dy) -50 ;
 //            ball->dx = ball->dx + 50;
 //            ball->dx = ball->dx + distance_from_ball_to_point_l + cos(flapper_l->angle_l)*30;
+            if (flapper_l->angle_l == 0 || flapper_l->angle_l == -60)
+            {
+                ball->dy = -fabs(ball->dy) + 30;
+            }
+            else
             ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_l - cos(flapper_l->angle_l)*30;
 
         }
@@ -137,20 +141,16 @@ void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapp
     {
         if (isBallCollideWithFlapper(ball)== RIGHT)
         {
-//            ball->dx = ball->dx + distance_from_ball_to_point_r + cos(flapper_r->angle_r)*30;
+            if (flapper_r->angle_r == 0 || flapper_r->angle_r == 60)
+            {
+                ball->dy = -fabs(ball->dy) + 30;
+            }
+            else
             ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_r - cos(flapper_r->angle_r)*30;
         }
     }
 }
-//
-//void FlapperCollision::FlapperAndBallCollisionHandling(Ball* ball, Flapper* flapper_l, Flapper* flapper_r)
-//{
-//
-//
-//    ball->dx = ball->dx + distance_from_ball_to_point_l/3 + cos(flapper_l->angle_l)*30;
-//    ball->dy = -fabs(ball->dy) + distance_from_ball_to_point_l/3 + cos(flapper_l->angle_l)*30;
-//
-//}
+
 
 
 

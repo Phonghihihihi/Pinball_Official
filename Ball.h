@@ -32,7 +32,6 @@ protected:
         double f_x, f_y;
         double ddx, ddy;
         double dt = 0.009;
-//      double d1,d2,d3,d4,d5,d6,d7,d8,d9,d10;
         double d1,d_ball1,d_ball2,d_ball3,d_thanh_ngang,d_thang_ngang_2,d7,d8,d9,d10,d11,d12,d13,d14;
         double diem;
         bool waifu;

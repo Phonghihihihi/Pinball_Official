@@ -17,7 +17,6 @@ public:
     WhichFlapper isDistanceFromBallLessThanOrEqualFlapperLength(Ball* ball);
     WhichFlapper isBallCollideWithFlapper(Ball* ball);
     void CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapper_l, Flapper* flapper_r);
-//    void FlapperAndBallCollisionHandling(Ball* ball, Flapper* flapper_l, Flapper* flapper_r);
 
 private:
     double angle_l, angle_r;
