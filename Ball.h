@@ -14,6 +14,7 @@ public:
     void isRan();
     void HandleInputAction(SDL_Event events, SDL_Renderer* screen);
     bool isGameOver();
+    bool isBallOutOfLauncher();
 
 
     const double PI = M_PI;
@@ -26,8 +27,8 @@ public:
     double v_input_;
     input input_type_;
 protected:
-        const int V_MAX = 500;
-        double ball_x_pos = 520;
+        const int V_MAX = 300;
+        double ball_x_pos = 515;
         double ball_y_pos = 320;
         double f_x, f_y;
         double ddx, ddy;

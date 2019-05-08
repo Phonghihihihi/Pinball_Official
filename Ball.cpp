@@ -43,7 +43,7 @@ void Ball::CheckCollision()
                     d7 = abs(*x - 450);
                     d8 = abs(*x - 100);
                     d9 = abs(*y - 500);
-                    d10= abs(*y - 500);
+                    d10= abs(*y - 420);
                     d11= abs(*x - 450);
                     d12= abs(*y - 200);
                     d13= abs(*x - 500);
@@ -215,7 +215,7 @@ void Ball::CheckCollision()
                         dx= -dx;
                     }
 
-                    if ( d10 <= R && *x >= 0 && *x <= 200)
+                    if ( d10 <= R && *x >= 0 && *x <= 100)
                     {
                         dy = -dy;
                     }
@@ -324,3 +324,9 @@ bool Ball::isGameOver()
     return false;
 }
 
+bool Ball::isBallOutOfLauncher()
+{
+    if (waifu == true)
+        return true;
+    return false;
+}

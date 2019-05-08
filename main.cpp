@@ -115,9 +115,10 @@ int main(int argc, char* argv[])
         right = new FlapperCollision;
         right->SetPos(FLAPPER_RIGHT_X_POS, FLAPPER_RIGHT_Y_POS);
 
-        Launcher launcher;
-        launcher.LoadImg("image//Launcher.png", g_screen);
-        launcher.setPos(510, 340);
+        Launcher* launcher = NULL;
+        launcher = new Launcher;
+        launcher->LoadImg("image//Launcher1.png", g_screen);
+        launcher->setPos(500, 340);
 
         Bump left_triangle, right_triangle;
         left_triangle.LoadImg("image//Triangle_le.png", g_screen);
@@ -132,6 +133,18 @@ int main(int argc, char* argv[])
         circle_100.setPos(CIRCLE_100_X_POS, CIRCLE_100_Y_POS);
         circle_50.setPos(CIRCLE_50_X_POS, CIRCLE_50_Y_POS);
         circle_25.setPos(CIRCLE_25_X_POS, CIRCLE_25_Y_POS);
+
+        Bump goc_tren, chan_ngang, chan_ngang_1, thanh_doc;
+        goc_tren.LoadImg("image//goc_tren.png", g_screen);
+        chan_ngang.LoadImg("image//chan_ngang.png", g_screen);
+        chan_ngang_1.LoadImg("image//thanh_chan_2.png", g_screen);
+        thanh_doc.LoadImg("image//thanh_doc.png", g_screen);
+        goc_tren.setPos(400, 0);
+        chan_ngang.setPos(0, 420);
+        chan_ngang_1.setPos(500, 200);
+        thanh_doc.setPos(450, 200);
+
+
 
 
         bool is_quit= false;
@@ -163,7 +176,17 @@ int main(int argc, char* argv[])
             circle_100.Show(g_screen);
             circle_50.Show(g_screen);
             circle_25.Show(g_screen);
-            launcher.Show(g_screen, ball);
+
+            thanh_doc.Show(g_screen);
+            goc_tren.Show(g_screen);
+            chan_ngang.Show(g_screen);
+
+            if (ball->isBallOutOfLauncher())
+            {
+                chan_ngang_1.Show(g_screen);
+            }
+
+            launcher->Show(g_screen, ball);
 
             ball->CheckCollision();
             ball->Show(g_screen);
@@ -189,6 +212,7 @@ int main(int argc, char* argv[])
                 delete ball;
                 delete left, right;
                 delete left_flapper, right_flapper;
+                delete launcher;
                 if (g_menu.Play_again(g_screen,g_window,1000))
                 {
                     isPlayAgain= true;

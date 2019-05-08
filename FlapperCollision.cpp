@@ -4,7 +4,7 @@ FlapperCollision::FlapperCollision()
 {
     flapper_x_pos_=0;
     flapper_y_pos_=0;
-    flapper_length_=60;
+    flapper_length_=55;
     angle_l=20;
     angle_r=160;
 }
@@ -128,11 +128,11 @@ void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapp
 //            ball->dy = -fabs(ball->dy) -50 ;
 //            ball->dx = ball->dx + 50;
 //            ball->dx = ball->dx + distance_from_ball_to_point_l + cos(flapper_l->angle_l)*30;
-            if (flapper_l->angle_l == 0 || flapper_l->angle_l == -60)
-            {
-                ball->dy = -fabs(ball->dy) + 30;
-            }
-            else
+//            if (flapper_l->angle_l == 0 || flapper_l->angle_l == -60)
+//            {
+//                ball->dy = -fabs(ball->dy) + 30;
+//            }
+//            else
             ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_l - cos(flapper_l->angle_l)*30;
 
         }
@@ -141,11 +141,11 @@ void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapp
     {
         if (isBallCollideWithFlapper(ball)== RIGHT)
         {
-            if (flapper_r->angle_r == 0 || flapper_r->angle_r == 60)
-            {
-                ball->dy = -fabs(ball->dy) + 30;
-            }
-            else
+//            if (flapper_r->angle_r == 0 || flapper_r->angle_r == 60)
+//            {
+//                ball->dy = -fabs(ball->dy) + 30;
+//            }
+//            else
             ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_r - cos(flapper_r->angle_r)*30;
         }
     }
