@@ -24,6 +24,8 @@ private:
     float flapper_x_pos_;
     float flapper_y_pos_;
     input input_type_;
+    Mix_Chunk* g_flapper = Mix_LoadWAV("sound//flapper.wav");
+
 };
 
 #endif // FLAPPERCOLLISION_H_INCLUDED

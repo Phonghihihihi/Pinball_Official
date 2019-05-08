@@ -14,7 +14,7 @@ SDL_Texture* TextObject::GetText(int c_size,SDL_Renderer* ren)
 {
 
             SDL_Texture *texture = nullptr;
-            TTF_Font* font = TTF_OpenFont("arial.ttf", c_size);
+            TTF_Font* font = TTF_OpenFont("font//arial.ttf", c_size);
             SDL_Surface *loadedText = TTF_RenderText_Solid(font, str_.c_str(), color_text);
 
             if (loadedText != nullptr)

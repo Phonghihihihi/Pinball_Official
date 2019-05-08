@@ -24,6 +24,7 @@ protected:
     SDL_Texture* p_object_;
     SDL_Rect rect_;
 
+
 };
 
 

@@ -4,7 +4,7 @@
 
 1555181881 ction.h"
 
-1557283022 source:e:\codeblock\pinball_official\main.cpp
+1557335666 source:e:\codeblock\pinball_official\main.cpp
 	"CommonFunction.h"
 	"BaseObject.h"
 	"Ball.h"
@@ -17,10 +17,10 @@
 
 1555179855 t.h"
 
-1557066199 source:e:\codeblock\pinball_official\baseobject.cpp
+1557332626 source:e:\codeblock\pinball_official\baseobject.cpp
 	"BaseObject.h"
 
-1557163281 e:\codeblock\pinball_official\commonfunction.h
+1557332477 e:\codeblock\pinball_official\commonfunction.h
 	<windows.h>
 	<string>
 	<math.h>
@@ -32,7 +32,7 @@
 
 1555177576 >
 
-1557155634 e:\codeblock\pinball_official\baseobject.h
+1557332731 e:\codeblock\pinball_official\baseobject.h
 	"CommonFunction.h"
 
 1555179855 source:/mnt/E/Codeblock/Pinball_Official/BaseObject.cpp
@@ -56,10 +56,10 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1557283101 source:e:\codeblock\pinball_official\ball.cpp
+1557332433 source:e:\codeblock\pinball_official\ball.cpp
 	"Ball.h"
 
-1557282775 e:\codeblock\pinball_official\ball.h
+1557332457 e:\codeblock\pinball_official\ball.h
 	"CommonFunction.h"
 	"BaseObject.h"
 
@@ -70,7 +70,7 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1557070050 source:e:\codeblock\pinball_official\launcher.cpp
+1557302121 source:e:\codeblock\pinball_official\launcher.cpp
 	"Launcher.h"
 
 1557042341 e:\codeblock\pinball_official\launcher.h
@@ -88,10 +88,10 @@
 
 1555657288 source:e:\codeblock\pinball_official\physics.cpp
 
-1557249711 source:e:\codeblock\pinball_official\flappercollision.cpp
+1557333001 source:e:\codeblock\pinball_official\flappercollision.cpp
 	"FlapperCollision.h"
 
-1557166063 e:\codeblock\pinball_official\flappercollision.h
+1557332731 e:\codeblock\pinball_official\flappercollision.h
 	"CommonFunction.h"
 	"Ball.h"
 	"Flapper.h"
@@ -103,23 +103,24 @@
 	"CommonFunction.h"
 	"BaseObject.h"
 
-1557163281 source:e:\codeblock\pinball_official\textobject.cpp
+1557336851 source:e:\codeblock\pinball_official\textobject.cpp
 	"TextObject.h"
 
-1557065898 e:\codeblock\pinball_official\textobject.h
+1557337136 e:\codeblock\pinball_official\textobject.h
 	"BaseObject.h"
 	<string>
 	<SDL_ttf.h>
 	"CommonFunction.h"
 	<fstream>
 
-1557065901 e:\codeblock\pinball_official\menu_game.h
+1557325907 e:\codeblock\pinball_official\menu_game.h
 	"BaseObject.h"
 	<fstream>
 	<vector>
 	"TextObject.h"
 	<string>
+	<algorithm>
 
-1557165931 source:e:\codeblock\pinball_official\menu_game.cpp
+1557336994 source:e:\codeblock\pinball_official\menu_game.cpp
 	"Menu_game.h"
 

@@ -15,7 +15,7 @@ public:
      std::string str_;
 private:
 
-    SDL_Color color_text={255,0,0};
+    SDL_Color color_text={255,250,179};
 };
 
 #endif // TEXTOBJECT_H_INCLUDED

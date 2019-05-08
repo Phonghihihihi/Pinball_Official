@@ -108,32 +108,25 @@ WhichFlapper FlapperCollision::isBallCollideWithFlapper(Ball* ball)
                                                 /(sqrt(pow(tan(angle_l*RADIAN),2))+1);
     double distance_from_ball_to_flapper_r = fabs(tan(angle_r*RADIAN)*(*ball->x)-(*ball->y)+FLAPPER_RIGHT_Y_POS-FLAPPER_RIGHT_X_POS*tan(angle_r*RADIAN))
                                                 /(sqrt(pow(tan(angle_r*RADIAN),2))+1);
-    std::cout<<distance_from_ball_to_flapper_l<<"-"<<distance_from_ball_to_flapper_r<<"/";
+//    std::cout<<distance_from_ball_to_flapper_l<<"-"<<distance_from_ball_to_flapper_r<<"/";
     if (distance_from_ball_to_flapper_l<= ball->R)
         return LEFT;
-    if (distance_from_ball_to_flapper_r<= ball->R)
+    else if (distance_from_ball_to_flapper_r<= ball->R)
         return RIGHT;
 }
 
 void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapper_l, Flapper* flapper_r)
 {
-
     double distance_from_ball_to_point_l = sqrt(pow(*ball->x-FLAPPER_LEFT_X_POS,2) + pow(*ball->y-FLAPPER_LEFT_Y_POS,2));
     double distance_from_ball_to_point_r = sqrt(pow(*ball->x-FLAPPER_RIGHT_X_POS,2) + pow(*ball->y-FLAPPER_RIGHT_Y_POS,2));
 
     if (isDistanceFromBallLessThanOrEqualFlapperLength(ball)== LEFT)
     {
+
         if (isBallCollideWithFlapper(ball)== LEFT)
         {
-//            ball->dy = -fabs(ball->dy) -50 ;
-//            ball->dx = ball->dx + 50;
-//            ball->dx = ball->dx + distance_from_ball_to_point_l + cos(flapper_l->angle_l)*30;
-//            if (flapper_l->angle_l == 0 || flapper_l->angle_l == -60)
-//            {
-//                ball->dy = -fabs(ball->dy) + 30;
-//            }
-//            else
-            ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_l - cos(flapper_l->angle_l)*30;
+            Mix_PlayChannel(-1,g_flapper,0);
+            ball->dy = -fabs(ball->dy) - 0,5*(distance_from_ball_to_point_l - cos(flapper_l->angle_l)*30);
 
         }
     }
@@ -141,12 +134,9 @@ void FlapperCollision::CheckAndHandleFlapperCollision(Ball* ball, Flapper* flapp
     {
         if (isBallCollideWithFlapper(ball)== RIGHT)
         {
-//            if (flapper_r->angle_r == 0 || flapper_r->angle_r == 60)
-//            {
-//                ball->dy = -fabs(ball->dy) + 30;
-//            }
-//            else
-            ball->dy = -fabs(ball->dy) - distance_from_ball_to_point_r - cos(flapper_r->angle_r)*30;
+                Mix_PlayChannel(-1,g_flapper,0);
+
+            ball->dy = -fabs(ball->dy) - 0,5*(distance_from_ball_to_point_r - cos(flapper_r->angle_r)*30);
         }
     }
 }

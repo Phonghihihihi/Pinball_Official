@@ -12,7 +12,7 @@ Ball::Ball()
     R = 8;
     v_input_ = 0;
     input_type_.launcher_ = 0;
-    diem=0;
+    score = 0;
 }
 
 Ball::~Ball()
@@ -34,6 +34,9 @@ void Ball::Show(SDL_Renderer* des)
 }
 void Ball::CheckCollision()
 {
+
+
+
                     d1 = abs( *x/3 - *y - 400 /3 ) / sqrt(pow( 1/3 ,2) + pow(1, 2));
                     d_ball1 = sqrt( pow(*x - 275,2) + pow(*y - 60, 2));
                     d_ball2 = sqrt( pow(*x - 350,2) + pow(*y - 120, 2));
@@ -75,6 +78,8 @@ void Ball::CheckCollision()
 
                     if ( d1 <= R )
                     {
+
+                        Mix_PlayChannel(-1,g_tri,0);
                         dx = dx - 50.0;
                         dy = dy + 50.0 * 3;
 
@@ -87,6 +92,8 @@ void Ball::CheckCollision()
 
                     if ( d_ball1 <= R + 20 && *x >= 275 && *y >= 60 )
                     {
+                        score+=100;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx);
                         dy = abs(dy);
 
@@ -95,66 +102,88 @@ void Ball::CheckCollision()
 
                     if ( d_ball1 <= R + 20 && *x <= 275 && *y >= 60 )
                     {
+                        score+=100;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) -1;
                         dy = abs(dy) + 1;
                     }
 
                     if ( d_ball1 <= R + 20 && *x >= 275 && *y <= 60 )
                     {
+                        score+=100;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx) + 1;
                         dy = -abs(dy) - 1;
                     }
 
                     if ( d_ball1 <= R + 20 && *x <= 275 && *y <= 60 )
                     {
+                        score+=100;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) - 1;
                         dy = -abs(dy) - 1;
                     }
 
                     if ( d_ball2 <= R + 20 && *x >= 350 && *y >= 120 )
                     {
+                        score+=50;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx) + 1;
                         dy = abs(dy) + 1 ;
                     }
 
                     if ( d_ball2 <= R + 20 && *x <= 350 && *y >= 120 )
                     {
+                        score+=50;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) - 1;
                         dy = abs(dy)  + 1;
                     }
 
                     if ( d_ball2 <= R + 20 && *x >= 350 && *y <= 120 )
                     {
+                        score+=50;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx) + 1;
                         dy = -abs(dy) - 1;
                     }
 
                     if ( d_ball2 <= R + 20 && *x <= 350 && *y <= 120 )
                     {
+                        score+=50;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) - 1;
                         dy = -abs(dy) - 1;
                     }
 
                     if ( d_ball3 <= R + 20 && *x >= 200 && *y >= 120 )
                     {
+                        score+=25;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx) + 1;
                         dy = abs(dy) + 1;
                     }
 
                     if ( d_ball3 <= R + 20 && *x <= 200 && *y >= 120 )
                     {
+                        score+=25;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) - 1;
                         dy = abs(dy) + 1 ;
                     }
 
                     if ( d_ball3 <= R + 20 && *x >= 200 && *y <= 120 )
                     {
+                        score+=25;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = abs(dx) + 1 ;
                         dy = -abs(dy) -1;
                     }
 
                     if ( d_ball3 <= R + 20 && *x <= 200 && *y <= 120 )
                     {
+                        score+=25;
+                        Mix_PlayChannel(-1,g_bump,0);
                         dx = -abs(dx) -1;
                         dy = -abs(dy) -1;
                     }
@@ -319,6 +348,7 @@ bool Ball::isGameOver()
 {
     if (*y >= 540)
     {
+        Mix_PlayChannel(-1,g_lose,0);
         return true;
     }
     return false;

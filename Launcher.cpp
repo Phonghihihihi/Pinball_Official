@@ -34,22 +34,3 @@ void Launcher::setPos(int x, int y)
     x_pos_ = x, y_pos_ = y;
 }
 
-//void Launcher::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
-//{
-//    if (events.type == SDL_KEYDOWN)
-//    {
-//        if (events.key.keysym.sym == SDLK_SPACE)
-//        {
-//            v_input_ += 3;
-//            if (v_input_ >= V_MAX) v_input_= V_MAX;
-//        }
-//    }
-//    else if (events.type == SDL_KEYUP)
-//    {
-//        if (events.key.keysym.sym == SDLK_SPACE)
-//        {
-//            input_type_.launcher_ = 0;
-//        }
-//    }
-//}
-

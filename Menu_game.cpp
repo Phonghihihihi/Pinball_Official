@@ -10,9 +10,28 @@ MenuGame::~MenuGame()
     ;
 }
 
+void MenuGame::SaveHighScore(long score){
+    using namespace std;
+    ifstream high_score("high score.txt");
+    vector <int> highScore;
+    while(!high_score.eof()){
+        int a;
+        high_score >> a;
+        highScore.push_back(a);
+    }
+    if (score > highScore[9]){
+        highScore.push_back(score);
+        sort(highScore.rbegin(), highScore.rend());
+
+        ofstream high_score("high score.txt");
+        for(int i=0; i< 10; i++)
+            high_score << highScore[i] << endl;
+    }
+}
+
 void MenuGame::open_high_score(SDL_Renderer* ren){
     SDL_Texture *table_high_score = LoadPNG("image//hihi.png", ren);
-    renderTexture(table_high_score, ren, 200, 100, 400, 400);
+    renderTexture(table_high_score, ren, 0,0);
     std::ifstream high_score("high score.txt");
     std::vector <TextObject> score;
     while(!high_score.eof()){
@@ -22,7 +41,7 @@ void MenuGame::open_high_score(SDL_Renderer* ren){
         score.push_back(b);
     }
     for(int i=0; i<score.size() & i<10; i++){
-        BaseObject::renderTexture(score[i].GetText(20, ren), ren, SCREEN_WIDTH/2-10 , 200+25*i);
+        BaseObject::renderTexture(score[i].GetText(26, ren), ren, SCREEN_WIDTH/2-10 , 200+25*i);
     }
     high_score.close();
 
@@ -116,7 +135,7 @@ void MenuGame::Menu_game(SDL_Renderer* ren, SDL_Window* window){
     }
 }
 
-bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window, int score)
+bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window,long score)
 {
 
     SDL_Texture* try_again= LoadPNG("image//e_try.png",ren);
@@ -139,7 +158,7 @@ bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window, int score)
     int x,y;
     while(true)
     {
-        renderTexture(your_text, ren, SCREEN_WIDTH/2-120 , SCREEN_HEIGHT/2);
+        renderTexture(your_text, ren, SCREEN_WIDTH/2-100 , SCREEN_HEIGHT/2+25);
         SDL_RenderPresent(ren);
         if (SDL_WaitEvent(&m_event) == 0) continue;
 

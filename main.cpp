@@ -46,6 +46,8 @@ bool initData()
             {
                 success=true;
             }
+            if(Mix_OpenAudio(22050,MIX_DEFAULT_FORMAT,2,4096)==-1)
+                success=false;
     }
     return success;
 
@@ -53,7 +55,7 @@ bool initData()
 
 bool loadBackground()
 {
-    bool ret = g_background.LoadImg("image//test.png", g_screen);
+    bool ret = g_background.LoadImg("image//test1.png", g_screen);
     if (ret == false)
         return false;
 
@@ -81,9 +83,9 @@ int main(int argc, char* argv[])
 
     bool notQuit = false;
     bool isPlayAgain = false;
+
     while (!notQuit)
     {
-        int score;
         MenuGame g_menu;
         if (!isPlayAgain)
         {
@@ -145,8 +147,6 @@ int main(int argc, char* argv[])
         thanh_doc.setPos(450, 200);
 
 
-
-
         bool is_quit= false;
         while(!is_quit)
         {
@@ -195,6 +195,9 @@ int main(int argc, char* argv[])
             {
                 ball->RunBall();
             }
+            TextObject text_score("Score: ");
+            text_score.str_+=std::to_string(ball->score);
+            text_score.renderTexture(text_score.GetText(25, g_screen), g_screen, 20, 20);
 
             left->CheckAndHandleFlapperCollision(ball, left_flapper, right_flapper);
             right->CheckAndHandleFlapperCollision(ball, left_flapper, right_flapper);
@@ -213,7 +216,8 @@ int main(int argc, char* argv[])
                 delete left, right;
                 delete left_flapper, right_flapper;
                 delete launcher;
-                if (g_menu.Play_again(g_screen,g_window,1000))
+                 g_menu.SaveHighScore(ball->score);
+                if (g_menu.Play_again(g_screen,g_window,ball->score))
                 {
                     isPlayAgain= true;
                 }
