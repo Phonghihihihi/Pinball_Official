@@ -16,6 +16,7 @@ BaseObject::~BaseObject()
 
 bool BaseObject::LoadImg(std::string path, SDL_Renderer* screen)
 {
+    SDL_DestroyTexture(p_object_);
     SDL_Texture* new_texture = NULL;
     SDL_Surface* load_surface= IMG_Load(path.c_str());
     if (load_surface!= NULL)
@@ -32,6 +33,7 @@ bool BaseObject::LoadImg(std::string path, SDL_Renderer* screen)
     }
 
     p_object_= new_texture;
+
 
     return p_object_!= NULL;
 }
@@ -73,7 +75,9 @@ void BaseObject::Destroy(SDL_Texture* texture ,SDL_Window* window,SDL_Renderer* 
     SDL_DestroyRenderer(ren);
     SDL_DestroyWindow(window);
     TTF_Quit();
+    IMG_Quit();
     SDL_Quit();
+
 }
 
 void BaseObject::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y)

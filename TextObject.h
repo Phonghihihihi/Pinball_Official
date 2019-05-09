@@ -13,9 +13,11 @@ public:
     ~TextObject();
     SDL_Texture* GetText(int c_size, SDL_Renderer *ren);
      std::string str_;
+     void DestroyText();
 private:
 
-    SDL_Color color_text={255,250,179};
+    SDL_Texture *text;
+    SDL_Color color_text={247,255,0};
 };
 
 #endif // TEXTOBJECT_H_INCLUDED

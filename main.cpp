@@ -198,6 +198,7 @@ int main(int argc, char* argv[])
             TextObject text_score("Score: ");
             text_score.str_+=std::to_string(ball->score);
             text_score.renderTexture(text_score.GetText(25, g_screen), g_screen, 20, 20);
+            text_score.DestroyText();
 
             left->CheckAndHandleFlapperCollision(ball, left_flapper, right_flapper);
             right->CheckAndHandleFlapperCollision(ball, left_flapper, right_flapper);
@@ -216,7 +217,7 @@ int main(int argc, char* argv[])
                 delete left, right;
                 delete left_flapper, right_flapper;
                 delete launcher;
-                 g_menu.SaveHighScore(ball->score);
+                g_menu.SaveHighScore(ball->score);
                 if (g_menu.Play_again(g_screen,g_window,ball->score))
                 {
                     isPlayAgain= true;

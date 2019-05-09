@@ -21,8 +21,14 @@ SDL_Texture* TextObject::GetText(int c_size,SDL_Renderer* ren)
                 {
                 texture = SDL_CreateTextureFromSurface(ren, loadedText);
                 SDL_FreeSurface(loadedText);
+                text= texture;
                 TTF_CloseFont(font);
 
-                return texture;
+                return text;
                 }
+}
+
+void TextObject::DestroyText()
+{
+    SDL_DestroyTexture(text);
 }
