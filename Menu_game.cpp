@@ -46,6 +46,7 @@ void MenuGame::open_high_score(SDL_Renderer* ren){
     high_score.close();
 
     SDL_RenderPresent(ren);
+    SDL_DestroyTexture(table_high_score);
     waitUntilKeyPressed();
 }
 
@@ -133,6 +134,10 @@ void MenuGame::Menu_game(SDL_Renderer* ren, SDL_Window* window){
                 }
             }
     }
+    SDL_DestroyTexture(menu_screen);
+    SDL_DestroyTexture(choose_start);
+    SDL_DestroyTexture(choose_high_score);
+    SDL_DestroyTexture(choose_quit);
 }
 
 bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window,long score)
@@ -174,6 +179,7 @@ bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window,long score)
                 renderTexture(e_quit, ren, 0, 0);
             else
                 renderTexture(e_background,ren, 0, 0);
+
         }
         else if(m_event.type== SDL_MOUSEBUTTONDOWN)
             if(m_event.button.button == SDL_BUTTON_LEFT){
@@ -183,5 +189,9 @@ bool MenuGame::Play_again(SDL_Renderer* ren, SDL_Window* window,long score)
                     return false;
             }
     }
+    SDL_DestroyTexture(try_again);
+    SDL_DestroyTexture(e_background);
+    SDL_DestroyTexture(e_quit);
+
 
 }

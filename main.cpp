@@ -80,10 +80,11 @@ int main(int argc, char* argv[])
 {
     if (initData()== false)
         return -1;
+    if (loadBackground()== false)
+        return -1;
 
     bool notQuit = false;
     bool isPlayAgain = false;
-
     while (!notQuit)
     {
         MenuGame g_menu;
@@ -91,8 +92,7 @@ int main(int argc, char* argv[])
         {
             g_menu.Menu_game(g_screen,g_window);
         }
-        if (loadBackground()== false)
-            return -1;
+
     /** Load Component */
 
         Ball* ball = NULL;
@@ -169,7 +169,6 @@ int main(int argc, char* argv[])
             SDL_RenderClear(g_screen);
 
             g_background.Render(g_screen, NULL);
-    //        SDL_Delay(3);
             left_triangle.Show(g_screen);
             right_triangle.Show(g_screen);
 

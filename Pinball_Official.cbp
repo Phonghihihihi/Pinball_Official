@@ -31,7 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="SDL/SDL2_image-2.0.3/include" />
+			<Add directory="SDL/SDL2_mixer-2.0.2/include" />
+			<Add directory="SDL/SDL2_ttf-2.0.14/include" />
+			<Add directory="SDL/SDL2-2.0.8/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2" />
+			<Add directory="SDL/SDL2_image-2.0.3/lib/x86" />
+			<Add directory="SDL/SDL2_mixer-2.0.2/lib/x86" />
+			<Add directory="SDL/SDL2_ttf-2.0.14/lib/x86" />
+			<Add directory="SDL/SDL2-2.0.8/i686-w64-mingw32/lib" />
+		</Linker>
 		<Unit filename="Ball.cpp" />
 		<Unit filename="Ball.h" />
 		<Unit filename="BaseObject.cpp" />

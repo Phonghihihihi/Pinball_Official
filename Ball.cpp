@@ -104,56 +104,56 @@ void Ball::CheckCollision()
                     {
                         score+=100;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = -abs(dx) -1;
-                        dy = abs(dy) + 1;
+                        dx = -abs(dx) -3;
+                        dy = abs(dy) + 3;
                     }
 
                     if ( d_ball1 <= R + 20 && *x >= 275 && *y <= 60 )
                     {
                         score+=100;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = abs(dx) + 1;
-                        dy = -abs(dy) - 1;
+                        dx = abs(dx) + 3;
+                        dy = -abs(dy) - 3;
                     }
 
                     if ( d_ball1 <= R + 20 && *x <= 275 && *y <= 60 )
                     {
                         score+=100;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = -abs(dx) - 1;
-                        dy = -abs(dy) - 1;
+                        dx = -abs(dx) - 3;
+                        dy = -abs(dy) - 3;
                     }
 
                     if ( d_ball2 <= R + 20 && *x >= 350 && *y >= 120 )
                     {
                         score+=50;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = abs(dx) + 1;
-                        dy = abs(dy) + 1 ;
+                        dx = abs(dx) + 2;
+                        dy = abs(dy) +  2;
                     }
 
                     if ( d_ball2 <= R + 20 && *x <= 350 && *y >= 120 )
                     {
                         score+=50;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = -abs(dx) - 1;
-                        dy = abs(dy)  + 1;
+                        dx = -abs(dx) - 2;
+                        dy = abs(dy)  + 2;
                     }
 
                     if ( d_ball2 <= R + 20 && *x >= 350 && *y <= 120 )
                     {
                         score+=50;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = abs(dx) + 1;
-                        dy = -abs(dy) - 1;
+                        dx = abs(dx) + 2;
+                        dy = -abs(dy) - 2;
                     }
 
                     if ( d_ball2 <= R + 20 && *x <= 350 && *y <= 120 )
                     {
                         score+=50;
                         Mix_PlayChannel(-1,g_bump,0);
-                        dx = -abs(dx) - 1;
-                        dy = -abs(dy) - 1;
+                        dx = -abs(dx) - 2;
+                        dy = -abs(dy) - 2;
                     }
 
                     if ( d_ball3 <= R + 20 && *x >= 200 && *y >= 120 )

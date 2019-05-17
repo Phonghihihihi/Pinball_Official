@@ -4,7 +4,7 @@ FlapperCollision::FlapperCollision()
 {
     flapper_x_pos_=0;
     flapper_y_pos_=0;
-    flapper_length_=55;
+    flapper_length_=57;
     angle_l=20;
     angle_r=160;
 }
